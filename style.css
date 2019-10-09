@@ -6,6 +6,30 @@ body {
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
+  color: #000000;
+}
+
+.slidecontainer {
+  width: 93%;
+}
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: #4f2d7f; /* tarleton purple background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: #000000; /* black background */
+  cursor: pointer; /* Cursor on hover */
 }

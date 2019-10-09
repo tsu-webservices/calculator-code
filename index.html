@@ -38,7 +38,7 @@
 
         <link href="//www.tarleton.edu/common/_css/full-sass.css" rel="stylesheet" type="text/css"/>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
         <script src="//www.tarleton.edu/common/_script/lazy/lazy-sass.js"></script>
 
@@ -54,7 +54,7 @@
 
         <script src="//www.tarleton.edu/common/_script/default-sass.js"></script>
 
-
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -182,18 +182,24 @@
             <form>
               <!-----SEMESTER--------------------------------------------------------->
               <div id="semesterDiv" class="formControlDiv">
-                <label for="semester">Semester :</label>
+                <label for="semester">Semester</label><br><br>
+                  <input type="radio"  name="semester" value="Spring"/> Spring 2019
+                  <input type="radio"  name="semester" value="Summer"/> Summer 2019
+                  <input type="radio"  name="semester" value="Fall/Spring"/> Fall 2019 or Spring 2020
+<!--
                   <select class="formControl" id="semester">
                     <option value="" selected></option>
                     <option class="current-academic-year springSemester">Spring </option>
                     <option class="current-academic-year summerSemester">Summer</option>
                     <option class="future-academic-year fallSemester">Fall</option>
                   </select>
+-->
                 </div>
+                <br>
               <!-----CLASSIFICATION--------------------------------------------------------->
               <div id="classificationDiv" class="formControlDiv">
                   <label title="Note:for undergraduate students, 12 SCH is considered full time and 6 SCH is considered part-time." class="tip" for="classification">
-                  Classification :</label>
+                  Classification</label><br><br>
                     <select class="formControl" id="classification">
                       <option value=""></option>
                       <option value="0">Freshman</option>
@@ -203,23 +209,34 @@
                       <option value="4">Graduate</option>
                     </select>
                 </div>
+                <br>
               <!-----RATE--------------------------------------------------------->
               <div id="residencyDiv" class="formControlDiv">
-               <label for="residency">Rate :</label>
+               <label for="residency">Rate</label><br><br>
+                <input type="radio"  name="rate" value="Variable"/> Variable
+                <input type="radio"  name="rate" value="Guaranteed"/> Guaranteed
+<!--
                   <select class="formControl" id="residency">
                     <option value=""></option>
                     <option value="inState">Variable</option>
                     <option value="OutOfState">Guaranteed</option>
                   </select>
+-->
               </div>
+              <br>
               <!-----Hours--------------------------------------------------------->
               <div id="firstTimeDiv" class="formControlDiv">
-                <label for="firstTime">Hours :</label>
+                <label for="firstTime">Hours</label><br><br>
+                <div class="slidecontainer">
+                  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                </div>
+<!---
                   <select class="formControl" id="firstTime">
                     <option value=""></option>
                     <option value="yes">yes</option>
                     <option value="no">no</option>
                   </select>
+--->
               </div>
               <!-----TUITION PLAN-VARIABLE--------------------------------------------------------->
 
@@ -296,10 +313,7 @@
   --->
 
           </div>
-
         </div>
-
-
         <div id="right-navigation" role="navigation">
           <div class="col cu3">
 
