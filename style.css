@@ -9,18 +9,18 @@ h1 {
   color: #000000;
 }
 
-.slidecontainer {
-  width: 93%;
-}
+/*.slidecontainer {
+  width: 100%;
+}*/
 
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 5px; /* Specified height */
+  width: 620px; /* Full-width */
+  height: 2px; /* Specified height */
   background: #4f2d7f; /* tarleton purple background */
   outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  /*opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
@@ -28,8 +28,9 @@ h1 {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
+  border-radius: 5px;
   width: 20px; /* Set a specific slider handle width */
-  height: 50px; /* Slider handle height */
+  height: 45px; /* Slider handle height */
   background: #000000; /* black background */
   cursor: pointer; /* Cursor on hover */
 }
