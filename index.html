@@ -228,9 +228,20 @@
               <div id="firstTimeDiv" class="formControlDiv">
                 <label for="firstTime">Hours</label><br><br>
                 <div class="slidecontainer">
-                  <input type="range" min="3" max="18" value="10" class="slider" id="myRange" oninput="">
-                  <output for="slider" onforminput="value = slider.valueAsNumber;"></output>
+                  <input type="range" min="3" max="18" value="10" class="slider" id="slider">
                 </div>
+
+<!--- need to work on box
+                <div class="box">
+                  <center><div id="value"></div></center>
+                <div>
+
+                <script type="text/javascript">
+                  var slider=document.getElementsById("slider");
+                  var val=document.getElementsById("value");
+                  val.innerHTML=slider.value;
+                </script>
+--->
 <!---
                   <select class="formControl" id="firstTime">
                     <option value=""></option>
