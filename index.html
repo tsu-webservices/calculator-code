@@ -33,9 +33,18 @@
 
 
 
+<<<<<<< HEAD
         <link href="//www.tarleton.edu/common/_css/full-sass.css" rel="stylesheet" type="text/css"/>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+=======
+    <!---My Coment ----->
+    <link href="">
+
+        <link href="//www.tarleton.edu/common/_css/full-sass.css" rel="stylesheet" type="text/css"/>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+>>>>>>> master
 
         <script src="//www.tarleton.edu/common/_script/lazy/lazy-sass.js"></script>
 
@@ -51,7 +60,11 @@
 
         <script src="//www.tarleton.edu/common/_script/default-sass.js"></script>
 
+<<<<<<< HEAD
 
+=======
+    <link rel="stylesheet" href="style.css">
+>>>>>>> master
 
 </head>
 <body>
@@ -179,19 +192,32 @@
             <form>
               <!-----SEMESTER--------------------------------------------------------->
               <div id="semesterDiv" class="formControlDiv">
+<<<<<<< HEAD
                 <label for="semester">Semester :</label>
+=======
+                <label for="semester">Semester</label><br><br>
+                  <input type="radio"  name="semester" value="Spring"/> Spring 2019
+                  <input type="radio"  name="semester" value="Summer"/> Summer 2019
+                  <input type="radio"  name="semester" value="Fall/Spring"/> Fall 2019 or Spring 2020
+<!--
+>>>>>>> master
                   <select class="formControl" id="semester">
                     <option value="" selected></option>
                     <option class="current-academic-year springSemester">Spring </option>
                     <option class="current-academic-year summerSemester">Summer</option>
                     <option class="future-academic-year fallSemester">Fall</option>
                   </select>
+<<<<<<< HEAD
+=======
+-->
+>>>>>>> master
                 </div>
+                <br>
               <!-----CLASSIFICATION--------------------------------------------------------->
               <div id="classificationDiv" class="formControlDiv">
                   <label title="Note:for undergraduate students, 12 SCH is considered full time and 6 SCH is considered part-time." class="tip" for="classification">
-                  Classification :</label>
-                    <select class="formControl" id="classification">
+                  Classification</label><br><br>
+                    <select class="formControl" id="classification" style="width: 620px">
                       <option value=""></option>
                       <option value="0">Freshman</option>
                       <option value="1">Sophomore</option>
@@ -200,6 +226,7 @@
                       <option value="4">Graduate</option>
                     </select>
                 </div>
+<<<<<<< HEAD
               <!-----RESIDENCY--------------------------------------------------------->
               <div id="residencyDiv" class="formControlDiv">
                <label for="residency">Residency :</label>
@@ -213,13 +240,46 @@
               <!-----FIRST TIME--------------------------------------------------------->
               <div id="firstTimeDiv" class="formControlDiv">
                 <label for="firstTime">First Semester at Tarleton :</label>
+=======
+                <br>
+              <!-----RATE--------------------------------------------------------->
+              <div id="residencyDiv" class="formControlDiv">
+               <label for="residency">Rate</label><br><br>
+                <input type="radio"  name="rate" value="Variable"/> Variable
+                <input type="radio"  name="rate" value="Guaranteed"/> Guaranteed
+<!--
+                  <select class="formControl" id="residency">
+                    <option value=""></option>
+                    <option value="inState">Variable</option>
+                    <option value="OutOfState">Guaranteed</option>
+                  </select>
+-->
+              </div>
+              <br>
+              <!-----Hours--------------------------------------------------------->
+              <div id="firstTimeDiv" class="formControlDiv">
+                <label for="firstTime">Hours</label><br><br>
+                <div class="slidecontainer">
+                  <input type="range" min="3" max="18" value="10" class="slider" id="myRange" oninput="">
+                  <output for="slider" onforminput="value = slider.valueAsNumber;"></output>
+                </div>
+<!---
+>>>>>>> master
                   <select class="formControl" id="firstTime">
                     <option value=""></option>
                     <option value="yes">yes</option>
                     <option value="no">no</option>
                   </select>
+<<<<<<< HEAD
               </div>
               <!-----TUITION PLAN-VARIABLE--------------------------------------------------------->
+=======
+--->
+              </div>
+              <!-----TUITION PLAN-VARIABLE--------------------------------------------------------->
+
+<!---
+>>>>>>> master
               <div id="variableDiv" class="formControlDiv">
                <label for="variable">Tuition Plan :</label>
                   <select class="formControl" id="variable">
@@ -228,7 +288,14 @@
                     <option value="guaranteed">Guaranteed</option>
                   </select>
               </div>
+--->
+
               <!-----CAMPUS--------------------------------------------------------->
+<<<<<<< HEAD
+=======
+
+<!--
+>>>>>>> master
               <div id="campusDiv" class="formControlDiv">
                 <label for="campus" class="tip" title="Campus: You may take classes in Stephenville, Fort Worth, Weatherford, Waco, Midlothian, Cleburne, and online (distance learning.)  Learn more about our <a href=http://www.tarleton.edu/locationsmap.html target=_blank>locations</a> or <a href=http://www.tarleton.edu/globalcampus/index.html target=_blank>distance learning</a> A student has to qualify for distance learner status in order to be charged as a Distance Learner. To apply for Distance Learner status, fill out the <a href=http://www.tarleton.edu/common/links/academic/campus-update-request-form.html target=_blank>Campus Update Request Form</a>. For more information, please email <a href=mailto:registrar@tarleton.edu target=_blank>registrar@tarleton.edu</a>.">
                     Campus :</label>
@@ -240,7 +307,11 @@
                     <option value="online" id="online-campus">Distance Learner<strong>*</strong></option>
                   </select>
               </div>
+-->
+
               <!-----DELIVERY METHOD--------------------------------------------------------->
+
+<!--
               <div id="lsDiv" class="formControlDiv subClass">
                 <label for="ls" class="tip" title="Delivery Method: Depending on availability, you may enroll in face-to-face lecture classes or online classes.  There are additional fees associated with online classes.">
                   Delivery Method :</label>
@@ -250,7 +321,14 @@
                     <option value="inperson">In Person</option>
                   </select>
               </div>
+<<<<<<< HEAD
+=======
+-->
+
+>>>>>>> master
               <!-----HOUSING-MEAL PLANS--------------------------------------------------------->
+
+<!---
               <div id="svilleDiv" class="subClass">
 
                   <div id="housingDiv">
@@ -267,17 +345,27 @@
                         </select>
                     </div>
               </div>
+--->
+
               <!-----SUBMIT BUTTONS--------------------------------------------------------->
+
+<!-----
               <div id="submitDiv">
                 <input id="submit" type="button" class="u12-mobile cu4 button-box purple col short-button" value="Submit"/>
               </div>
             </form>
             <div id="article-end"></div>
+  --->
+
           </div>
         </div>
         <div id="right-navigation" role="navigation">
           <div class="col cu3">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
             <div class="mobile-hide mini-hide tablet-hide"><div class="gray-module"><h1 class="main-website-link current-website-link"><a class="current-website-link" href="index.html" role="menuitem">Business Services</a></h1><ul class="right-menu" role="menu"><li role="presentation"><a class="nav-show" href="#" role="menuitem" title="Expand or Contract Menu"> <span class="with-sub-nav">Students</span></a><ul class="sub-nav" role="menu"><li role="presentation"><a href="students/index.html" role="menuitem">Overview</a></li><li role="presentation"><a href="students/tuition-rate-plans.html" role="menuitem">Tuition and Fee Plans</a></li><li role="presentation"><a href="students/payment-options-and-dates.html" role="menuitem">Payment Options and Dates</a></li><li role="presentation"><a href="students/refund-options.html" role="menuitem">Tarleton Refund Options </a></li><li role="presentation"><a href="students/taxinfo.html" role="menuitem">Tax Information </a></li><li role="presentation"><a href="students/american-opportunity-credit.html" role="menuitem">American Opportunity Credit</a></li><li role="presentation"><a href="students/texas-tuition-fund.html" role="menuitem">Texas Tuition Fund Information</a></li><li role="presentation"><a href="students/short-term-loans.html" role="menuitem">Short-term Loans </a></li><li role="presentation"><a href="students/texan-bill-pay.html" role="menuitem">Texan Bill Pay </a></li><li role="presentation"><a href="students/student-fees.html" role="menuitem">Student Fees</a></li><li role="presentation"><a href="students/support.html" role="menuitem">Student Support </a></li></ul></li><li role="presentation"><a class="nav-show" href="#" role="menuitem" title="Expand or Contract Menu"> <span class="with-sub-nav">Faculty &amp; Staff</span></a><ul class="sub-nav" role="menu"><li role="presentation"><a href="facultystaff/index.html" role="menuitem">Overview</a></li><li role="presentation"><a href="facultystaff/accts-payable.html" role="menuitem">Accounts Payable</a></li><li role="presentation"><a href="facultystaff/travel.html" role="menuitem">Travel</a></li><li role="presentation"><a href="facultystaff/training.html" role="menuitem">Training</a></li><li role="presentation"><a href="facultystaff/procurementcards.html" role="menuitem">Procurement Cards </a></li><li role="presentation"><a href="facultystaff/accounting.html" role="menuitem">Accounting</a></li><li role="presentation"><a href="facultystaff/departmental-deposits.html" role="menuitem">Departmental Deposits</a></li><li role="presentation"><a href="facultystaff/budget-services.html" role="menuitem">Budget Services</a></li></ul></li></ul></div></div>
             <div class="cu12-mini gray-module" role="menu"><h1 class="main-title-heading">Contact Info</h1><div class="partition"><a class="nav-show" href="#" role="menuitem" title="Expand or Contract Menu"> <span class="with-sub-nav">Office of Business Services</span></a><div class="sub-nav" role="menu"><div class="col cu12-mobile cu12-desktop"><div class="margin-block"><h2>Main Office</h2><p><a href="http://map.tarleton.edu/map/?id=302&amp;mrkIid=70989"> <span>Administration Building, Room 122 </span></a></p><p><a class="mailingaddress" href="http://map.tarleton.edu/map/?id=302&amp;mrkIid=70989"> <span>Box T-0120
 Stephenville, TX 76402</span></a></p><p><a href="tel:+12549689107"> <span>254-968-9107</span></a></p><p><a class="faxnumber" href="tel:+12549689438"> <span>254-968-9438</span></a></p><p><a href="mailto:businessofc@tarleton.edu"> <span>Email Main Office</span></a></p></div></div></div></div></div>
