@@ -9,28 +9,23 @@ h1 {
   color: #000000;
 }
 
-/*.slidecontainer {
-  width: 100%;
-}*/
-
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 620px; /* Full-width */
-  height: 2px; /* Specified height */
-  background: #4f2d7f; /* tarleton purple background */
-  outline: none; /* Remove outline */
-  /*opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+.slidecontainer {
+  width: 620px;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  border-radius: 5px;
-  width: 20px; /* Set a specific slider handle width */
-  height: 45px; /* Slider handle height */
-  background: #000000; /* black background */
-  cursor: pointer; /* Cursor on hover */
-}
+input[type=range]{-webkit-appearance: none;appearance: none;border: 0;border-radius: 0;box-shadow: none;outline: none;padding: 0;}
+input[type=range]:focus{box-shadow: none;outline: none;}
+
+input[type=range]::-webkit-slider-runnable-track{width:100%;height:12px;cursor:pointer;background:#4F2D7F;border-radius:1.3px;}
+input[type=range]::-webkit-slider-thumb{border:1px solid #707070;height:40px;width:14px;border-radius:3px;background:#fff;cursor:pointer;-webkit-appearance:none;appearance: none;margin-top:-14px;}
+input[type=range]:focus::-webkit-slider-runnable-track{background:#4F2D7F;}
+
+input[type=range]::-moz-range-track{width:100%;height:12px;cursor:pointer;background:#4F2D7F;border-radius:1.3px;}
+input[type=range]::-moz-range-thumb{border:1px solid #707070;height:40px;width:14px;border-radius:3px;background:#fff;cursor:pointer;}
+
+input[type=range]::-ms-track{width:100%;height:12px;cursor:pointer;background:transparent;border-color:transparent;border-width:16px 0;color:transparent;}
+input[type=range]::-ms-fill-lower{background:#4F2D7F;border:0.2px solid #010101;border-radius:2.6px;}
+input[type=range]::-ms-fill-upper{background:#4F2D7F;border:0.2px solid #010101;border-radius:2.6px;}
+input[type=range]::-ms-thumb{border:1px solid #4F2D7F;height:40px;width:14px;border-radius:3px;background:#fff;cursor:pointer;}
+input[type=range]:focus::-ms-fill-lower{background:#4F2D7F;}
+input[type=range]:focus::-ms-fill-upper{background:#4F2D7F;}
