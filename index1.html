@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head></head>
+<body>
+<script src="script.js"></script>
+  <div class="cu12 cu9-desktop" id="main-content-left">
+    <h1>Tuition Calculator</h1>
+    <div class="main-content" id="skiptocontent" role="main">
+      <div id="article-start"></div>
+      <form>
+        <div id="classificationDiv" class="formControlDiv">
+          <div id="classificationContainer">
+            <div id="classificationTitle">
+              <label class="classification" for="classification">Classification</label><br><br>
+            </div>
+            <div>
+              <input id="classification" type="radio" name="Classification" value="Undergraduate">Undergraduate
+              <!--<label for="undraduate"><span></span>Undergraduate</label>-->
+            </div>
+            <div>
+              <input id="classification" type="radio" name="Classification" value="Graduate">Graduate
+              <!--<label for="graduate"><span></span>Graduate</label>-->
+            </div>
+          </div>
+        </div>
+        <div id="semesterDiv" class="formControlDiv">
+          <div id="semesterContainer">
+            <div id="semesterTitle">
+              <label class="semester" for="semester">Classification</label><br><br>
+            </div>
+            <div>
+              <input id="semester" type="radio" name="Semester" value="Fall/Spring Semester">Fall/Spring Semester
+              <!--<label for="undraduate"><span></span>Undergraduate</label>-->
+            </div>
+            <div>
+              <input id="semester" type="radio" name="Semester" value="Summer Semester">Summer Semester
+              <!--<label for="graduate"><span></span>Graduate</label>-->
+            </div>
+            <button type="button" onclick="displayRadioValue()">Submit</button>
+            <div id="result"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>       
+</body>
+<!--Temp Comments
+              <div id="semesterDiv" class="formControlDiv">
+                <label for="semester">First Semester</label><br><br>
+                <input type="radio" name="semester" value="Spring" /> Spring 2019
+                <input type="radio" name="semester" value="Summer" /> Summer 2019
+                <input type="radio" name="semester" value="Fall/Spring" /> Fall 2019 or Spring 2020
+              </div>
+
+              <div id="typeDiv" class="formControlDiv">
+                <label for="type">Type</label><br><br>
+                <input type="radio" name="type" value="First Time" /> First Time
+                <input type="radio" name="type" value="Current" /> Current
+                <input type="radio" name="type" value="New Transfer" /> New Transfer
+              </div>
+
+              <div id="residencyDiv" class="formControlDiv">
+                <label for="residency">Residency</label><br><br>
+                <input type="radio" name="residency" value="Resident" /> Resident
+                <input type="radio" name="residency" value="Non-Resident" /> Non-Resident
+              </div>
+
+              <div id="rateDiv" class="formControlDiv">
+                <label for="rate">Rate</label><br><br>
+                <input type="radio" name="rate" value="Variable" /> Variable
+                <input type="radio" name="rate" value="Guaranteed" /> Guaranteed
+              </div>
+
+              <div id="hoursDiv" class="formControlDiv">
+                <label for="hours">Hours</label><br><br>
+                <div class="slidecontainer">
+                  <input type="range" min="3" max="18" value="10" class="slider" id="slider">
+                </div>
+              </div>
+              <br>
+              -->
