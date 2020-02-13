@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head></head>
+<body>
+<script src="script.js"></script>
+  <div class="cu12 cu9-desktop" id="main-content-left">
+    <h1>Tuition Calculator</h1>
+    <div class="main-content" id="skiptocontent" role="main">
+      <div id="article-start"></div>
+      <form id="calculatorForm">
+        <div id="classificationDiv" class="formControlDiv">
+          <div id="classificationContainer">
+            <div id="classificationTitle">
+              <label class="classification" for="classification">Classification</label><br><br>
+            </div>
+            <div>
+              <input id="classification" type="radio" name="Classification" value="5" onclick="calculateTu()">Undergraduate
+              <!--<label for="undraduate"><span></span>Undergraduate</label>-->
+            </div>
+            <div>
+              <input id="classification" type="radio" name="Classification" value="10" onclick="calculateTu()">Graduate
+              <!--<label for="graduate"><span></span>Graduate</label>-->
+            </div>
+          </div>
+        </div><br>
+        <div id="semesterDiv" class="formControlDiv">
+          <div id="semesterContainer">
+            <div id="semesterTitle">
+              <label class="semester" for="semester">Semester</label><br><br>
+            </div>
+            <div>
+              <input id="semester" type="radio" name="Semester" value="5000" onclick="calculateTu()">Fall/Spring Semester
+              <!--<label for="undraduate"><span></span>Undergraduate</label>-->
+            </div>
+            <div>
+              <input id="semester" type="radio" name="Semester" value="58208" onclick="calculateTu()">Summer Semester
+              <!--<label for="graduate"><span></span>Graduate</label>-->
+            </div>
+          </div>
+        </div>
+        <div id="hoursDiv" class="formControlDiv">
+          <label> Semester Credit Hours </label>
+          <select id="hours" name="hours" onchange="calculateTu()">
+          <option value="None">None</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </div>
+        <div id="result1"></div>
+        <button id="submit" value="Submit" type="button" onclick="calculateTu()">Submit</button>
+      </form>
+    </div>
+  </div>       
+</body>
+<!--Temp Comments
+              <div id="semesterDiv" class="formControlDiv">
+                <label for="semester">First Semester</label><br><br>
+                <input type="radio" name="semester" value="Spring" /> Spring 2019
+                <input type="radio" name="semester" value="Summer" /> Summer 2019
+                <input type="radio" name="semester" value="Fall/Spring" /> Fall 2019 or Spring 2020
+              </div>
+
+              <div id="typeDiv" class="formControlDiv">
+                <label for="type">Type</label><br><br>
+                <input type="radio" name="type" value="First Time" /> First Time
+                <input type="radio" name="type" value="Current" /> Current
+                <input type="radio" name="type" value="New Transfer" /> New Transfer
+              </div>
+
+              <div id="residencyDiv" class="formControlDiv">
+                <label for="residency">Residency</label><br><br>
+                <input type="radio" name="residency" value="Resident" /> Resident
+                <input type="radio" name="residency" value="Non-Resident" /> Non-Resident
+              </div>
+
+              <div id="rateDiv" class="formControlDiv">
+                <label for="rate">Rate</label><br><br>
+                <input type="radio" name="rate" value="Variable" /> Variable
+                <input type="radio" name="rate" value="Guaranteed" /> Guaranteed
+              </div>
+
+              <div id="hoursDiv" class="formControlDiv">
+                <label for="hours">Hours</label><br><br>
+                <div class="slidecontainer">
+                  <input type="range" min="3" max="18" value="10" class="slider" id="slider">
+                </div>
+              </div>
+              <br>
+              -->
