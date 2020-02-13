@@ -7,18 +7,18 @@
     <h1>Tuition Calculator</h1>
     <div class="main-content" id="skiptocontent" role="main">
       <div id="article-start"></div>
-      <form>
+      <form id="calculatorForm">
         <div id="classificationDiv" class="formControlDiv">
           <div id="classificationContainer">
             <div id="classificationTitle">
               <label class="classification" for="classification">Classification</label><br><br>
             </div>
             <div>
-              <input id="classification" type="radio" name="Classification" value="Undergraduate">Undergraduate
+              <input id="classification" type="radio" name="Classification" value="5" onclick="calculateTu()">Undergraduate
               <!--<label for="undraduate"><span></span>Undergraduate</label>-->
             </div>
             <div>
-              <input id="classification" type="radio" name="Classification" value="Graduate">Graduate
+              <input id="classification" type="radio" name="Classification" value="10" onclick="calculateTu()">Graduate
               <!--<label for="graduate"><span></span>Graduate</label>-->
             </div>
           </div>
@@ -29,17 +29,41 @@
               <label class="semester" for="semester">Classification</label><br><br>
             </div>
             <div>
-              <input id="semester" type="radio" name="Semester" value="Fall/Spring Semester">Fall/Spring Semester
+              <input id="semester" type="radio" name="Semester" value="5000" onclick="calculateTu()">Fall/Spring Semester
               <!--<label for="undraduate"><span></span>Undergraduate</label>-->
             </div>
             <div>
-              <input id="semester" type="radio" name="Semester" value="Summer Semester">Summer Semester
+              <input id="semester" type="radio" name="Semester" value="58208" onclick="calculateTu()">Summer Semester
               <!--<label for="graduate"><span></span>Graduate</label>-->
             </div>
-            <button type="button" onclick="displayRadioValue()">Submit</button>
-            <div id="result"></div>
           </div>
         </div>
+        <div id="hoursDiv" class="formControlDiv">
+          <label> Semester Credit Hours </label>
+          <select id="hours" name="hours" onchange="calculateTu()">
+          <option value="None">None</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+        </div>
+        <div id="result1"></div>
+        <button id="submit" value="Submit" type="button" onclick="calculateTu()">Submit</button>
       </form>
     </div>
   </div>       
