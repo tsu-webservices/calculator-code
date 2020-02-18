@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+	<title>Tuition Estimator</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body onload='hideTotal()'>
+	<div id="wrap">
+		<h1>Tuition Estimator</h1>
+		<form action="" id="tuitionform" onsubmit="return false;">
+			<div>
+				<div>
+					<fieldset>
+						<!------------------- STUDENT CLASSIFICATION ------------------->
+						<label>Classification</label><br>
+						<label class="radiolabel"><input type="radio"  name="Classification" value="Class5" onclick="calculateTotal()"/>Undergraduate</label>
+
+						<label class="radiolabel"><input type="radio"  name="Classification" value="Class10" onclick="calculateTotal()"/>Graduate</label>
+						<br>
+						<!------------------- SEMESTER -------------------------------->
+						<label>Semester</label><br>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Full" onclick="calculateTotal()">Fall 2020</label>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Full" onclick="calculateTotal()">Spring 2021</label>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Half" onclick="calculateTotal()">Summer 2021</label>
+						<br>
+						<!------------------- HOURS -------------------------------->
+						<label> Semester Credit Hours </label>
+						<select id="hours" name='hours' onchange="calculateTotal()">
+							<option value="None">None</option>
+							<option value="one">1</option>
+							<option value="two">2</option>
+							<option value="three">3</option>
+							<option value="four">4</option>
+							<option value="five">5</option>
+							<option value="six">6</option>
+							<option value="seven">7</option>
+							<option value="eight">8</option>
+							<option value="nine">9</option>
+							<option value="ten">10</option>
+							<option value="eleven">11</option>
+							<option value="twelve">12</option>
+							<option value="thirteen">13</option>
+							<option value="fourteen">14</option>
+							<option value="fifteen">15</option>
+							<option value="sixteen">16</option>
+							<option value="seventeen">17</option>
+							<option value="eightteen">18</option>
+							<option value="nineteen">19</option>
+						</select>
+						<br/>
+						<!------------------- Tution Plan-------------------------------->
+						<label>Tution Plan</label>
+						<br>
+						<label class="radiolabel"><input type="radio" name="tuitionPlan" value="Variable" onclick="calculateTotal()">Variable</label>
+						<label class="radiolabel"><input type="radio" name="tuitionPlan" value="Guarenteed" onclick="calculateTotal()">Guaranteed</label>
+						<br>
+						<!------------------ First Semester -------------------------------->
+						<label>First Semester</label>
+						<br>
+						<label class="radiolabel"><input type="radio" name="firstSemester" value="Yes" onclick="calculateTotal()">Yes</label>
+						<label class="radiolabel"><input type="radio" name="firstSemester" value="No" onclick="calculateTotal()">No</label>
+						<br>
+					</fieldset>
+				</div>
+				<div id="totalPrice"></div>
+			</div>  
+		</form>
+	</div><!--End of wrap-->
+
+</body>
+</html>
