@@ -8,25 +8,26 @@
 <body onload='hideTotal()'>
 	<div id="wrap">
 		<h1>Tuition Estimator</h1>
-		<form action="" id="tuitionform" onsubmit="return false;">
+		<p id="demo"></p>
+		<form action="" id="tuitionform" onsubmit="return calculateTotal();">
 			<div>
 				<div>
 					<fieldset>
+						<!------------------- SEMESTER -------------------------------->
+						<label>Semester</label><br>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Full-now" onclick="calculateTotal()">Spring 2020</label>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Half-now" onclick="calculateTotal()">Summer 2020</label>
+						<label class="radiolabel"><input type="radio" name="Semester" value="Full-next" onclick="calculateTotal()">Fall 2020</label>
+						<br>
 						<!------------------- STUDENT CLASSIFICATION ------------------->
 						<label>Classification</label><br>
 						<label class="radiolabel"><input type="radio"  name="Classification" value="Class5" onclick="calculateTotal()"/>Undergraduate</label>
 
 						<label class="radiolabel"><input type="radio"  name="Classification" value="Class10" onclick="calculateTotal()"/>Graduate</label>
 						<br>
-						<!------------------- SEMESTER -------------------------------->
-						<label>Semester</label><br>
-						<label class="radiolabel"><input type="radio" name="Semester" value="Full" onclick="calculateTotal()">Fall 2020</label>
-						<label class="radiolabel"><input type="radio" name="Semester" value="Full" onclick="calculateTotal()">Spring 2021</label>
-						<label class="radiolabel"><input type="radio" name="Semester" value="Half" onclick="calculateTotal()">Summer 2021</label>
-						<br>
 						<!------------------- HOURS -------------------------------->
 						<label> Semester Credit Hours </label>
-						<select id="hours" name='hours' onchange="calculateTotal()">
+						<select required id="hours" name='hours' onchange="calculateTotal()">
 							<option value="None">None</option>
 							<option value="one">1</option>
 							<option value="two">2</option>

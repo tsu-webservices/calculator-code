@@ -1,0 +1,120 @@
+<!--------------HTML FORM -------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <form action="" id="tuitionform" onsubmit="return false">
+	<div>
+		<div>
+			<fieldset>
+              <label class="radiolabel"><input type="radio" name="Semester" value="0" onclick="calculateTotal()">Spring 2020</label>
+              <label class="radiolabel"><input type="radio" name="Semester" value="1" onclick="calculateTotal()">Summer 2020</label>
+              <label class="radiolabel"><input type="radio" name="Semester" value="2" onclick="calculateTotal()">Fall 2020</label>
+              <br>
+              <!-- Value deterimes the semester we are pulling numbers from for our arrays -->
+              
+              <label>Classification</label><br>
+			  <label class="radiolabel"><input type="radio"  name="Classification" value="0" onclick="calculateTotal()"/>Undergraduate</label>
+              <label class="radiolabel"><input type="radio"  name="Classification" value="1" onclick="calculateTotal()"/>Graduate</label>
+              <!-- Value declares which price in the classification_prices array to assign -->
+			  <br>
+            </fieldset>
+		</div>
+		<div id="totalPrice"></div>
+	</div>  
+  </form>
+</body>
+</html>
+
+
+var semester = 5; // declared 5 bc it's not a case we use
+var semester_prices = new Array(); // we declare the arrays ahead of time to then push the values based on what semester case we use
+var classification_prices = new Array(); // ''
+
+function declareArrays(){
+  switch (semester) {
+    case "0": //full-now
+        semester_prices.push(4);
+        classification_prices.push(5); // if a student selects undergraduate(value = 0) the price would be $5
+        classification_prices.push(10);
+        return;
+        //break;
+    case "1": //half-now
+        return semester_prices.push(2);
+        //classification_prices.push(5);
+       // classification_prices.push(10);
+       // break;
+    case "2"://full-next
+        return semester_prices.push(6);
+        //classification_prices.push(15);
+        //classification_prices.push(20);
+       // break;
+    case "3"://half-next
+        return semester_prices.push(3);
+        //classification_prices.push(15);
+        //classification_prices.push(20);
+        //break;
+    default:
+        semesterSelection = 'no';
+      return semesterSelection;
+}
+}
+
+<!---------------Javascript ------------------->
+function getSemester() // this reads the value of the selected semester
+{
+	semester = 0;
+	var theForm = document.forms["tuitionform"];
+	var selectedSemester = theForm.elements["Semester"];
+	for(var i = 0; i < selectedSemester.length; i++)
+	{
+		if(selectedSemester[i].checked)
+		{
+			semester = selectedSemester[i].value;
+            declareArrays(); // based on the value of the semester selected, this function uses a switch statement to push those values into the arrays
+          break;
+		}
+	}
+	return semester;
+}
+
+function getClassificationPrice() //asigns price of Classification
+{  
+    var classificationPrice=0;
+    var theForm = document.forms["tuitionform"];
+    var selectedClass = theForm.elements["Classification"];
+    for(var i = 0; i < selectedClass.length; i++)
+    {
+        
+        if(selectedClass[i].checked)
+        {
+            classificationPrice = classification_prices[selectedClass[i].value]; 
+            break;
+        }
+    }
+    return classificationPrice;
+}
+
+function calculateTotal() 
+{
+
+  getSemester();  // This functions runs prior so the appropriate semester values are loaded into the array
+  var tuitionCost = getClassificationPrice();
+  
+  var divobj = document.getElementById('totalPrice');
+    divobj.style.display='block';
+   divobj.innerHTML = "Estimated Cost of Tuition: $"+tuitionCost;
+   return false;
+}
+
+function hideTotal()
+{
+  var divobj = document.getElementById('totalPrice');
+  divobj.style.display='none';
+}
+
+

@@ -2,13 +2,15 @@
   classification_prices["Class5"]=5;
   classification_prices["Class10"]=10;
 
- var semester_prices = new Array();
-  semester_prices["Full"]=50;
-  semester_prices["Half"]=25;
+ var semester_prices = new Array(); //3 active options
+  semester_prices["Full-now"]=2;
+  semester_prices["Half-now"]=1;
+  semester_prices["Full-next"]=8;
+  //semester_prices["Half-next"]=4;
 
  var plan_prices = new Array();
- 	plan_prices["Variable"]=20;
- 	plan_prices["Guarenteed"]=40;
+ 	plan_prices["Variable"]=30;
+ 	plan_prices["Guarenteed"]=60;
 
  var first_semester = new Array();
  	first_semester["Yes"]=20;
@@ -36,8 +38,6 @@ var hour_prices = new Array();
    hour_prices["eightteen"]=18;
    hour_prices["nineteen"]=19;
 	 
-	 
-
 function getClassificationPrice()
 {  
     var classificationPrice=0;
@@ -127,16 +127,15 @@ function calculateTotal()
     //Here we get the total price by calling our function
     //Each function returns a number so by calling them we add the values they return together
     var tuitionCost = getPlanPrice() + getClassificationPrice() + getSemesterPrice() + getHoursPrice() + getFirstSemester();
-    
-    //display the result
-    var divobj = document.getElementById('totalPrice');
+  
+  var divobj = document.getElementById('totalPrice');
     divobj.style.display='block';
-    divobj.innerHTML = "Estimated Cost of Tuition: $"+tuitionCost;
-
+   divobj.innerHTML = "Estimated Cost of Tuition: $"+tuitionCost;
+   return false;
 }
 
-function hideTotal()
-{
-    var divobj = document.getElementById('totalPrice');
-    divobj.style.display='none';
-}
+//function hideTotal()
+//{
+  ////  var divobj = document.getElementById('totalPrice');
+    //divobj.style.display='none';
+//}
