@@ -13,19 +13,19 @@
 			<div>
 				<div>
 					<fieldset>
-						<!------------------- SEMESTER -------------------------------->
+						<!--- SEMESTER -------------------------------->
 						<label>Semester</label><br>
 						<label class="radiolabel"><input type="radio" name="Semester" value="Full-now" onclick="calculateTotal()">Spring 2020</label>
 						<label class="radiolabel"><input type="radio" name="Semester" value="Half-now" onclick="calculateTotal()">Summer 2020</label>
 						<label class="radiolabel"><input type="radio" name="Semester" value="Full-next" onclick="calculateTotal()">Fall 2020</label>
 						<br>
-						<!------------------- STUDENT CLASSIFICATION ------------------->
+						<!--- STUDENT CLASSIFICATION ------------------->
 						<label>Classification</label><br>
 						<label class="radiolabel"><input type="radio"  name="Classification" value="Class5" onclick="calculateTotal()"/>Undergraduate</label>
 
 						<label class="radiolabel"><input type="radio"  name="Classification" value="Class10" onclick="calculateTotal()"/>Graduate</label>
 						<br>
-						<!------------------- HOURS -------------------------------->
+						<!--- HOURS -------------------------------->
 						<label> Semester Credit Hours </label>
 						<select required id="hours" name='hours' onchange="calculateTotal()">
 							<option value="None">None</option>
@@ -50,13 +50,13 @@
 							<option value="nineteen">19</option>
 						</select>
 						<br/>
-						<!------------------- Tution Plan-------------------------------->
+						<!--- Tution Plan-------------------------------->
 						<label>Tution Plan</label>
 						<br>
 						<label class="radiolabel"><input type="radio" name="tuitionPlan" value="Variable" onclick="calculateTotal()">Variable</label>
 						<label class="radiolabel"><input type="radio" name="tuitionPlan" value="Guarenteed" onclick="calculateTotal()">Guaranteed</label>
 						<br>
-						<!------------------ First Semester -------------------------------->
+						<!--- First Semester -------------------------------->
 						<label>First Semester</label>
 						<br>
 						<label class="radiolabel"><input type="radio" name="firstSemester" value="Yes" onclick="calculateTotal()">Yes</label>
@@ -65,7 +65,7 @@
 					</fieldset>
 				</div>
 				<div id="totalPrice"></div>
-			</div>  
+			</div>
 		</form>
 	</div><!--End of wrap-->
 
