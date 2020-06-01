@@ -8,7 +8,7 @@ var gradhours = document.getElementById("gradhours");
 var undergradhours = document.getElementById("undergradhours");
 gradhours.visibility = "hidden"; //default hide grad hours
 
-function calculateTotal() { //form functionality
+function calculateTotal() {
   var tuitionCost;
   var tuitionrates = document.getElementById('tuitionRates');
   if (getStudent() == 1 ){
@@ -18,31 +18,47 @@ function calculateTotal() { //form functionality
    getSemester(); // Identifies selected semester and loads appropriate costs
    tuitionCost = calculateGrad(); // Calculation of cost and fees for Grad
   } else {
-    tuitionrates.style.display = "block"; //Displays 21 Undergrad hours
+    tuitionrates.style.display = "block";
+    undergradhours.style.display = "block"; //Display 21 Undergrad hours
+    gradhours.style.display = "none"; //Hide 15 Grad hours
     getSemester(); // Identifies selected summer and loads appropriate costs
     tuitionCost = calculateUndergrad(); // Calculation of cost and fees for Undergrad
   }
   return tuitionCost;
 }
 
+function resetForm() { //reset form fields and output
+  document.getElementById("tuitionform").reset();
+  var cost = document.getElementById('totalPrice');
+  var NRcost = document.getElementById('totalNRPrice');
+  cost.style.display = 'none';
+  NRcost.style.display = 'none';
+}
+
 function displayCost(){ //display the resident result
-  var tuitionCost = displayNonResidentCost();
+  var tuitionCost = calculateTotal();
+  displayNRCost();
+  tuitionCost = tuitionCost.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
   var divobj = document.getElementById('totalPrice');
   divobj.style.display = "block";
   divobj.innerHTML = "$" + tuitionCost;
 }
 
-function displayNonResidentCost(){ //display the non-result
-  var tuitionCost = calculateNonResidentUndergrad();
-  var divobj = document.getElementById('totalNonResidentPrice');
+function displayNRCost(){ //display the non-resident result
+  var tuitionCost;
+  var divobj = document.getElementById('totalPrice');
+  if (getStudent() == 1 ){
+   tuitionCost = "$" + calculateNRGrad();
+  } else if (getPlanPrice() == plan_prices[1]){
+    tuitionCost = "$" + calculateNRUndergrad();
+  } else {
+    tuitionCost = "----";
+  }
+  tuitionCost = tuitionCost.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+  var divobj = document.getElementById('totalNRPrice');
   divobj.style.display = "block";
-  divobj.innerHTML = "$" + tuitionCost;
-}
+  divobj.innerHTML = tuitionCost;
 
-function resetForm() { //reset form fields and output
-  document.getElementById("tuitionform").reset();
-  var cost = document.getElementById('totalPrice');
-  cost.style.display = 'none';
 }
 
 function getStudent() // identifies student type
@@ -87,19 +103,23 @@ function calculateUndergrad(){ // Calculates the unique cost of a Undergrad Stud
   totalcost = hours * tuitionplan;
   totalcost = totalcost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
   totalcost = totalcost.toFixed(2); // fixes decimal display
-   return cost;
+  return totalcost;
 }
-function calculateNonResidentUndergrad(){ // Calculates the unique cost of a Undergrad Student
+
+function calculateNRUndergrad(){ // Calculates the unique cost of a Undergrad Student
   var totalcost;
   var servicecost;
   var hours = document.getElementById("semesterUndergradHours").value; // identifies number of hours selected
   var tuitionplan = plan_prices[2]; //identifies the plan selected
+  servicePrice = service_fees[1]; // default selection of services fee
   servicecost = hours * servicePrice;
   totalcost = hours * tuitionplan;
   totalcost = totalcost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
   totalcost = totalcost.toFixed(2); // fixes decimal display
-   return cost;
+  return totalcost;
 }
+
+
 
 function getPlanPrice(){ // Identifies selected Tuition and Services plan
    var planPrice = 0;
@@ -125,40 +145,42 @@ function calculateGrad(){ // Calculates the unique cost for a Grad Student
   servicePrice = service_fees[2]; // default selection of services fee
   servicecost = hours * servicePrice;
   cost = hours * plan;
-  cost = cost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
+  cost = cost + servicecost + reccenter;
   cost = cost.toFixed(2); // fixes decimal display
    return cost;
 }
-
-function calculateNonResidentGrad(){ // Calculates the unique cost for a Grad Student
+function calculateNRGrad(){ // Calculates the unique cost for a Non-Resident Grad Student
   var cost;
   var servicecost;
   var hours = document.getElementById("semesterGradHours").value; //idenfities number of hours selected
-  var plan = plan_prices[4]; // default selection of tuition plan rate
+  var plan = plan_prices[4]; // Non-Resident selection of tuition plan rate
   servicePrice = service_fees[2]; // default selection of services fee
   servicecost = hours * servicePrice;
   cost = hours * plan;
-  cost = cost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
+  cost = cost + servicecost + reccenter;
   cost = cost.toFixed(2); // fixes decimal display
-   return cost;
+  return cost;
 }
+
 
 function declareValues() { // loads tuition rates and service fee prices based on semester selection
   switch (semester) {
     case "0": //full-now (Fall/Spring/Summer 2020-2021)
-      plan_prices.push(235.79); //Guaranteed - Resident 0
-      plan_prices.push(179.04); // Variable - Resident 1
-      plan_prices.push(694.74); // Variable - Non-Resident 2
-      plan_prices.push(235.79); // Grad - Resident 3
-      plan_prices.push(10.00); // Grad - Non-Resident 4
+      plan_prices.push(235.79); //0 - Guaranteed - Resident
+      plan_prices.push(179.04); //1 - Variable - Resident
+      plan_prices.push(588.04); //2 - Variable - Non-Resident
+      plan_prices.push(235.79); //3 - Grad - Resident
+      plan_prices.push(694.79); //4 - Grad - Non-Resident
       service_fees.push(164.83); //0 - Guaranteed - Resident
-      service_fees.push(137.91); //1 - Variable - Resident
-      service_fees.push(164.83); //2 - Grad - Resident
+      service_fees.push(137.91); //1 - Variable
+      service_fees.push(164.83); //2 - Grad
       return;
     case "1": //full-next - (Fall/Spring 2021-2022)
-      plan_prices.push(0); //Guaranteed - Resident
-      plan_prices.push(0); // Variable - Resident
-      plan_prices.push(0); // Grad - Resident
+      plan_prices.push(0); //0 - Guaranteed - Resident
+      plan_prices.push(0); //1 - Variable - Resident
+      plan_prices.push(0); //2 - Variable - Non-Resident
+      plan_prices.push(0); //3 - Grad - Resident
+      plan_prices.push(0); //4 - Grad - Non-Resident
       service_fees.push(0); //0 - Guaranteed - Resident
       service_fees.push(0); //1 - Variable - Resident
       service_fees.push(0); //2 - Grad - Resident

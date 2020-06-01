@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Tuition Estimator 2.0</title>
-    <script type="text/javascript" src="grad.js"></script>
-  </head>
-  <body>
+<head>
+<meta name="description" content="tuition estimator prototype">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tuition Estimator 3.0</title>
+</head>
+<body>
+<h1>Tuition Estimator</h1> 
     <form id="tuitionform" onsubmit="return false;">
         <div>
           <fieldset>
@@ -13,14 +15,13 @@
             <label class="radiolabel"><input type="radio" name="Student" value="0" onclick="calculateTotal()">Undergraduate</label>
             <label class="radiolabel"><input type="radio" name="Student" value="1" onclick="calculateTotal()">Graduate</label>
             <br>
-
             <label>Semester</label><br>
             <label class="radiolabel"><input type="radio" name="Semester" value="0" >Fall 2020</label>
             <label class="radiolabel"><input type="radio" name="Semester" value="0" >Spring 2021</label>
             <label class="radiolabel"><input type="radio" name="Semester" value="0" >Summer 2021</label>
             <br>
-            <div id="tuitionRates">
-            <label>Tution Plan</label>
+            <div id="'tuition'Rates">
+            <label>Tuition Plan</label>
             <br>
             <label class="radiolabel"><input type="radio" name="tuitionPlan" value="0" >Guaranteed</label>
             <label class="radiolabel"><input type="radio" name="tuitionPlan" value="1" >Variable</label>
@@ -72,14 +73,16 @@
               </select>
             </div>
             <br/>
-            <button onclick="displayCost()">View Estimated Cost</button>
-            <button onclick="resetForm()"> Reset Form</button>
+            <div class="button-panel"> 
+              <button onclick="displayCost()">View Estimated Cost</button>
+              <button onclick="resetForm()">Reset Form</button> 
+            </div>
           </fieldset>
         </div>
         <b>Estimated Cost of Resident Tuition and Required Fees:</b>
-        <div id="totalPrice"></div>
+        <div id="totalPrice" style="font-size: 3em;"></div><br>
         <b>Estimated Cost of Non-Resident Tuition and Required Fees:</b>
-        <div id="totalNonResidentPrice"></div>
+        <div id="totalNRPrice" style="font-size: 3em;"></div>
       </form>
-  </body>
+</body>
 </html>
