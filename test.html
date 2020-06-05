@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Tuition Estimator 3.5</title>
+    </head>
+    <body>
+        <h1>Tuition Estimator 3.5</h1>
+        <form id="tuitionform" onsubmit="return false;">
+            <div>
+                <fieldset>
+                    <label>Student Type</label><br />
+                    <label class="radiolabel"><input type="radio" name="Student" value="0" onclick="calculateTotal()" />Undergraduate</label>
+                    <label class="radiolabel"><input type="radio" name="Student" value="1" onclick="calculateTotal()" />Graduate</label>
+                    <br />
+
+                    <label>Semester</label><br />
+                    <label class="radiolabel"><input type="radio" name="Semester" value="0" />Fall 2020</label>
+                    <label class="radiolabel"><input type="radio" name="Semester" value="0" />Spring 2021</label>
+                    <label class="radiolabel"><input type="radio" name="Semester" value="0" />Summer 2021</label>
+                    <br />
+                    <div id="tuitionRates">
+                        <label>Tuition Plan</label>
+                        <br />
+                        <label class="radiolabel"><input type="radio" name="tuitionPlan" value="0" />Guaranteed</label>
+                        <label class="radiolabel"><input type="radio" name="tuitionPlan" value="1" />Variable</label>
+                        <br />
+                    </div>
+                    <label> Semester Credit Hours </label><br />
+                    <div id="undergradhours">
+                        <select required id="semesterUndergradHours" name="hours">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                        </select>
+                    </div>
+                    <div id="gradhours">
+                        <select required id="semesterGradHours" name="hours">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="button-panel">
+                        <button class="cu12 button-box button-box purple short-button" onclick="displayCost()">View Estimated Cost</button>
+                        <button class="cu12 button-box no-margin-bottom button-box gray short-button" onclick="resetForm()">Reset Form</button>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="aside-box">
+                <b>Estimated Cost of Resident Tuition and Required Fees:</b>
+                <div id="totalPrice" style="font-size: 3em;"></div>
+                <b>Estimated Cost of Non-Resident Tuition and Required Fees:</b>
+                <div id="totalNRPrice" style="font-size: 3em;"></div>
+            </div>
+        </form>
+        <script>
+            var semester;
+            var reccenter = 100;
+            var student;
+            var tuition_price = new Array();
+            var service_fees = new Array();
+            var servicePrice = 0;
+            var gradhours = document.getElementById("gradhours");
+            var undergradhours = document.getElementById("undergradhours");
+            gradhours.style.display = "none";
+
+            function getStudent() {
+                //this reads the value of the selected semester
+                student = 0;
+                var theForm = document.forms["tuitionform"];
+                var selectedStudent = theForm.elements["Student"];
+                for (var i = 0; i < selectedStudent.length; i++) {
+                    if (selectedStudent[i].checked) {
+                        student = selectedStudent[i].value;
+                        //declareValues(); // based on the value of the semester selected, this function uses a switch statement to push those values into the arrays
+                        break;
+                    }
+                }
+                return student;
+            }
+
+            function getSemester() {
+                // this reads the value of the selected semester
+                semester = 0;
+                var theForm = document.forms["tuitionform"];
+                var selectedSemester = theForm.elements["Semester"];
+                for (var i = 0; i < selectedSemester.length; i++) {
+                    if (selectedSemester[i].checked) {
+                        semester = selectedSemester[i].value;
+                        declareValues(); // based on the value of the semester selected, this function uses a switch statement to push those values into the arrays
+                        break;
+                    }
+                }
+                return semester;
+            }
+
+            function declareValues() {
+                switch (semester) {
+                    case "0": //full-now (Fall/Spring/Summer 2020-2021)
+                        tuition_price.push(235.79);
+                        tuition_price.push(179.04);
+                        tuition_price.push(588.04);
+                        tuition_price.push(235.79);
+                        tuition_price.push(694.79);
+                        service_fees.push(164.83); //0 - Guaranteed
+                        service_fees.push(137.91); //1 - Variable
+                        service_fees.push(164.83); //2 - Grad
+                        return;
+                    //break;
+                    case "1": //half-now (Fall/Spring/Summer 2021-2022)
+                        tuition_price.push(0); //0 - Guaranteed - Resident
+                        tuition_price.push(0); //1 - Variable - Resident
+                        tuition_price.push(0); //2- Variable - NResident
+                        tuition_price.push(0); //3 - Grad - Resident
+                        tuition_price.push(0); //4- Grad - NResident
+                        service_fees.push(0); //0 - Guaranteed
+                        service_fees.push(0); //1 - Variable - Resident
+                        service_fees.push(0); //2 - Grad - Resident
+                        return;
+                    default:
+                        semesterSelection = "no";
+                        return semesterSelection;
+                }
+            }
+
+            function getPlanPrice() {
+                var planPrice = 0;
+                var theForm = document.forms["tuitionform"];
+                var selectedPlan = theForm.elements["tuitionPlan"];
+                for (var i = 0; i < selectedPlan.length; i++) {
+                    if (selectedPlan[i].checked) {
+                        planPrice = tuition_price[selectedPlan[i].value]; //identifies which tuition fee is selected
+                        servicePrice = service_fees[selectedPlan[i].value]; // identifies which services fee is selected
+                        break;
+                    }
+                }
+                return planPrice;
+            }
+
+            function calculateUndergrad() {
+                var cost;
+                var servicecost;
+                var hours = document.getElementById("semesterUndergradHours").value;
+                var plan = getPlanPrice();
+                servicecost = hours * servicePrice;
+                cost = hours * plan;
+                cost = cost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
+                cost = cost.toFixed(2); // removes the decimals
+                return cost;
+            }
+
+            function calculateNRUndergrad() {
+              var cost;
+              var servicecost;
+              var hours = document.getElementById("semesterUndergradHours").value;
+              var plan = tuition_price[2];
+              servicePrice = service_fees[1]; // default selection of services fee
+              servicecost = hours * servicePrice;
+              cost = hours * plan;
+              cost = cost + servicecost + reccenter;
+              return cost.toFixed(2);
+            }
+
+            function calculateGrad() {
+              var cost;
+              var servicecost;
+              var hours = document.getElementById("semesterGradHours").value;
+              var plan = tuition_price[3]; //identifies which tuition fee is selected
+              servicePrice = service_fees[2]; // identifies which services fee is selected
+              servicecost = hours * servicePrice;
+              cost = hours * plan;
+              cost = cost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
+              cost = cost.toFixed(2); // removes the decimals
+              return cost;
+            }
+
+            function calculateNRGrad() {
+              var cost;
+              var servicecost;
+              var hours = document.getElementById("semesterGradHours").value;
+              var plan = tuition_price[4]; //identifies which tuition fee is selected
+              servicePrice = service_fees[2]; // identifies which services fee is selected
+              servicecost = hours * servicePrice;
+              cost = hours * plan;
+              cost = cost + servicecost + reccenter; // $100 is the Flat fee for Recreation Center
+              return cost.toFixed(2);
+            }
+
+            function calculateTotal() {
+              var tuitionCost;
+              var tuitionrates = document.getElementById("tuitionRates");
+              if (getStudent() == 1) {
+                  tuitionrates.style.display = "none";
+                  undergradhours.style.display = "none";
+                  gradhours.style.display = "block";
+                  getSemester();
+                  tuitionCost = calculateGrad();
+              } else {
+                  tuitionrates.style.display = "block";
+                  undergradhours.style.display = "block";
+                  gradhours.style.display = "none";
+                  getSemester(); // This functions runs prior so the appropriate semester values are loaded into the estimator
+                  tuitionCost = calculateUndergrad(); // runs calculations of cost based on number of hours selected
+              }
+              return tuitionCost;
+            }
+
+            function displayCost() {
+              var tuitionCost = calculateTotal();
+              var divobj = document.getElementById("totalPrice");
+              tuitionCost = tuitionCost.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+              divobj.style.display = "block";
+              divobj.innerHTML = "$" + tuitionCost; //display the result
+              displayNRCost();
+            }
+
+            function displayNRCost() {
+              //display the non-resident result
+              var tuitionCost;
+              var divobj = document.getElementById("totalNRPrice");
+              if (getStudent() == 1) {
+                  tuitionCost = "$" + calculateNRGrad();
+              } else if (getPlanPrice() == tuition_price[1]) {
+                  tuitionCost = "$" + calculateNRUndergrad();
+              } else {
+                  tuitionCost = "----";
+              }
+              tuitionCost = tuitionCost.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+              divobj.style.display = "block";
+              divobj.innerHTML = tuitionCost;
+              return tuitionCost;
+            }
+
+            function resetForm() {
+              //reset form fields
+              document.getElementById("tuitionform").reset();
+              var cost = document.getElementById("totalPrice");
+              var NRcost = document.getElementById("totalNRPrice");
+              NRcost.style.display = "none";
+              cost.style.display = "none";
+            }
+        </script>
+    </body>
+</html>
